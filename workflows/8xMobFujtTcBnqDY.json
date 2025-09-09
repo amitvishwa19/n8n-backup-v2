@@ -233,7 +233,7 @@
   "meta": {
     "templateId": "2652"
   },
-  "name": "Backup your workflows to GitHub 2",
+  "name": "Backup your workflows to GitHub",
   "nodes": [
     {
       "parameters": {},
@@ -707,6 +707,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-09T05:36:09.000Z",
-  "versionId": "b32759ce-d409-4c50-8c03-6a9678c5e201"
+  "updatedAt": "2025-09-09T05:37:23.000Z",
+  "versionId": "e215fa43-a894-49d1-833d-0161d4f2c466"
 }
