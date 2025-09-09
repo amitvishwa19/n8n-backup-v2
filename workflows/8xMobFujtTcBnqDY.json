@@ -241,24 +241,8 @@
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        816,
-        512
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "## Subworkflow",
-        "height": 750.8363163824032,
-        "width": 2086.845881354743,
-        "color": 6
-      },
-      "id": "9a3870e1-e79d-461e-885a-f2e79d76f4e1",
-      "name": "Sticky Note",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        368,
-        880
+        896,
+        336
       ],
       "typeVersion": 1
     },
@@ -271,8 +255,8 @@
       "name": "n8n",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        1072,
-        608
+        1152,
+        432
       ],
       "typeVersion": 1,
       "credentials": {
@@ -524,8 +508,8 @@
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        1280,
-        608
+        1360,
+        432
       ],
       "typeVersion": 3
     },
@@ -544,26 +528,10 @@
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "position": [
-        816,
-        704
+        896,
+        528
       ],
       "typeVersion": 1.2
-    },
-    {
-      "parameters": {
-        "content": "## Backup to GitHub \nThis workflow will backup all instance workflows to GitHub.\n\nThe files are saved `ID.json` for the filename.\n\n### Setup\nOpen `Globals` node and update the values below 👇\n\n- **repo.owner:** your Github username\n- **repo.name:** the name of your repository\n- **repo.path:** the folder to use within the repository. If it doesn't exist it will be created.\n\n\nIf your username was `john-doe` and your repository was called `n8n-backups` and you wanted the workflows to go into a `workflows` folder you would set:\n\n- repo.owner - john-doe\n- repo.name - n8n-backups\n- repo.path - workflows/\n\n\nThe workflow calls itself using a subworkflow, to help reduce memory usage.",
-        "height": 601,
-        "width": 371,
-        "color": 4
-      },
-      "id": "5ca560c0-b281-4bea-95bd-c8decd2bb8ee",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        368,
-        240
-      ],
-      "typeVersion": 1
     },
     {
       "parameters": {
@@ -576,8 +544,8 @@
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        768,
-        432
+        848,
+        256
       ],
       "typeVersion": 1
     },
@@ -654,22 +622,6 @@
     },
     {
       "parameters": {
-        "content": "## Edit this node 👇",
-        "height": 80,
-        "width": 150,
-        "color": 4
-      },
-      "id": "ffe9f716-11de-46b0-8221-ab4addc6ea1c",
-      "name": "Sticky Note3",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        688,
-        1040
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "inputSource": "passthrough"
       },
       "id": "72616fc1-1c21-4f17-862c-2838636437ec",
@@ -703,23 +655,40 @@
       "name": "Execute Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "position": [
-        1488,
-        608
+        1568,
+        432
       ],
       "typeVersion": 1.2
     },
     {
       "parameters": {
-        "content": "### 💡 **Want to learn advanced n8n skills and earn money building workflows?**\n‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎Check out [Scrapes Academy](https://www.skool.com/scrapes/about?ref=21f10ad99f4d46ba9b8aaea8c9f58c34)",
-        "width": 640,
+        "content": "## Edit this node 👇",
+        "height": 80,
+        "width": 150,
         "color": 4
       },
-      "id": "015a5f28-d1ff-4e3b-a303-6d143c7326b1",
-      "name": "Sticky Note16",
+      "id": "ffe9f716-11de-46b0-8221-ab4addc6ea1c",
+      "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        768,
-        240
+        688,
+        1040
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Subworkflow",
+        "height": 750.8363163824032,
+        "width": 2086.845881354743,
+        "color": 6
+      },
+      "id": "9a3870e1-e79d-461e-885a-f2e79d76f4e1",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        880
       ],
       "typeVersion": 1
     }
@@ -738,6 +707,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-09T05:33:13.000Z",
-  "versionId": "8009c670-4808-4b46-9357-79b8037f0a0d"
+  "updatedAt": "2025-09-09T05:36:09.000Z",
+  "versionId": "b32759ce-d409-4c50-8c03-6a9678c5e201"
 }
