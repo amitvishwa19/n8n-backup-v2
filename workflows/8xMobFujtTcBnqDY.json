@@ -1,22 +1,22 @@
 {
   "active": false,
   "connections": {
-    "n8n": {
+    "On clicking 'execute'": {
       "main": [
         [
           {
-            "node": "Loop Over Items",
+            "node": "n8n",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Globals": {
+    "n8n": {
       "main": [
         [
           {
-            "node": "Get file data",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -34,11 +34,18 @@
         ]
       ]
     },
-    "File is new": {
+    "If file too large": {
       "main": [
         [
           {
-            "node": "Create new file",
+            "node": "Get File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge Items",
             "type": "main",
             "index": 0
           }
@@ -92,11 +99,33 @@
         ]
       ]
     },
-    "Get file data": {
+    "Same file - Do nothing": {
       "main": [
         [
           {
-            "node": "If file too large",
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File is different": {
+      "main": [
+        [
+          {
+            "node": "Edit existing file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File is new": {
+      "main": [
+        [
+          {
+            "node": "Create new file",
             "type": "main",
             "index": 0
           }
@@ -104,6 +133,17 @@
       ]
     },
     "Create new file": {
+      "main": [
+        [
+          {
+            "node": "Return",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit existing file": {
       "main": [
         [
           {
@@ -126,17 +166,6 @@
         ]
       ]
     },
-    "Execute Workflow": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Schedule Trigger": {
       "main": [
         [
@@ -148,62 +177,22 @@
         ]
       ]
     },
-    "File is different": {
+    "Get file data": {
       "main": [
         [
           {
-            "node": "Edit existing file",
+            "node": "If file too large",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "If file too large": {
+    "Globals": {
       "main": [
         [
           {
-            "node": "Get File",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Merge Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Edit existing file": {
-      "main": [
-        [
-          {
-            "node": "Return",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "On clicking 'execute'": {
-      "main": [
-        [
-          {
-            "node": "n8n",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Same file - Do nothing": {
-      "main": [
-        [
-          {
-            "node": "Return",
+            "node": "Get file data",
             "type": "main",
             "index": 0
           }
@@ -225,6 +214,17 @@
           }
         ]
       ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-09T05:32:46.937Z",
@@ -237,12 +237,12 @@
   "nodes": [
     {
       "parameters": {},
-      "id": "a132fc4c-b651-4ca1-8c36-c925188835db",
+      "id": "d9e56c91-8be8-4048-b8b5-73edb354d6d7",
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        896,
-        336
+        -768,
+        -672
       ],
       "typeVersion": 1
     },
@@ -251,12 +251,12 @@
         "filters": {},
         "requestOptions": {}
       },
-      "id": "afaf95c7-5f2b-4ae2-a7de-8730f839d79f",
+      "id": "5b86cea0-910b-45c2-98e2-f8a5c236a957",
       "name": "n8n",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        1152,
-        432
+        -512,
+        -576
       ],
       "typeVersion": 1,
       "credentials": {
@@ -280,12 +280,12 @@
         },
         "options": {}
       },
-      "id": "e582f9cb-10e0-44c5-ab9b-b5e20aa49ced",
+      "id": "a4155a6a-ef8d-4717-8fa6-f15dc1c5c9dd",
       "name": "Return",
       "type": "n8n-nodes-base.set",
       "position": [
-        2256,
-        1088
+        592,
+        96
       ],
       "typeVersion": 3.3
     },
@@ -294,12 +294,12 @@
         "url": "={{ $json.download_url }}",
         "options": {}
       },
-      "id": "3d0b2d17-0e05-4139-b99c-e1cb862f2f9b",
+      "id": "32c1e4d7-540a-4009-b330-888c1bbedb3e",
       "name": "Get File",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        1360,
-        960
+        -304,
+        -48
       ],
       "typeVersion": 4.2
     },
@@ -338,23 +338,23 @@
         },
         "options": {}
       },
-      "id": "9dcdd75d-671a-4a85-8618-2fbbd8158a86",
+      "id": "975eb59d-b33e-40f5-87a2-3d229d875290",
       "name": "If file too large",
       "type": "n8n-nodes-base.if",
       "position": [
-        1152,
-        992
+        -512,
+        -16
       ],
       "typeVersion": 2
     },
     {
       "parameters": {},
-      "id": "1b6153ae-797a-4e3d-80c6-01467809b9ec",
+      "id": "7b36986a-39b2-4243-8df6-339f8cdfa5e2",
       "name": "Merge Items",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1152,
-        1248
+        -512,
+        256
       ],
       "typeVersion": 2
     },
@@ -362,12 +362,12 @@
       "parameters": {
         "jsCode": "const orderJsonKeys = (jsonObj) => {\n  const ordered = {};\n  Object.keys(jsonObj).sort().forEach(key => {\n    ordered[key] = jsonObj[key];\n  });\n  return ordered;\n}\n\n// Check if file returned with content\nif (Object.keys($input.all()[0].json).includes(\"content\")) {\n  // Decode base64 content and parse JSON\n  const origWorkflow = JSON.parse(Buffer.from($input.all()[0].json.content, 'base64').toString());\n  const n8nWorkflow = $input.all()[1].json;\n  \n  // Order JSON objects\n  const orderedOriginal = orderJsonKeys(origWorkflow);\n  const orderedActual = orderJsonKeys(n8nWorkflow);\n\n  // Determine difference\n  if (JSON.stringify(orderedOriginal) === JSON.stringify(orderedActual)) {\n    $input.all()[0].json.github_status = \"same\";\n  } else {\n    $input.all()[0].json.github_status = \"different\";\n    $input.all()[0].json.n8n_data_stringy = JSON.stringify(orderedActual, null, 2);\n  }\n  $input.all()[0].json.content_decoded = orderedOriginal;\n// No file returned / new workflow\n} else if (Object.keys($input.all()[0].json).includes(\"data\")) {\n  const origWorkflow = JSON.parse($input.all()[0].json.data);\n  const n8nWorkflow = $input.all()[1].json;\n  \n  // Order JSON objects\n  const orderedOriginal = orderJsonKeys(origWorkflow);\n  const orderedActual = orderJsonKeys(n8nWorkflow);\n\n  // Determine difference\n  if (JSON.stringify(orderedOriginal) === JSON.stringify(orderedActual)) {\n    $input.all()[0].json.github_status = \"same\";\n  } else {\n    $input.all()[0].json.github_status = \"different\";\n    $input.all()[0].json.n8n_data_stringy = JSON.stringify(orderedActual, null, 2);\n  }\n  $input.all()[0].json.content_decoded = orderedOriginal;\n\n} else {\n  // Order JSON object\n  const n8nWorkflow = $input.all()[1].json;\n  const orderedActual = orderJsonKeys(n8nWorkflow);\n  \n  // Proper formatting\n  $input.all()[0].json.github_status = \"new\";\n  $input.all()[0].json.n8n_data_stringy = JSON.stringify(orderedActual, null, 2);\n}\n\n// Return items\nreturn $input.all();"
       },
-      "id": "edba838c-2d9d-45e9-b4f7-340209dfec8d",
+      "id": "a7961f55-fb88-4c3c-a0b5-f78bc4941672",
       "name": "isDiffOrNew",
       "type": "n8n-nodes-base.code",
       "position": [
-        1360,
-        1248
+        -304,
+        256
       ],
       "typeVersion": 1
     },
@@ -391,45 +391,45 @@
           ]
         }
       },
-      "id": "4f4193f2-bb76-4af7-8a6a-c15e29732208",
+      "id": "0da3fcdf-6c0b-4e96-a484-687040671e46",
       "name": "Check Status",
       "type": "n8n-nodes-base.switch",
       "position": [
-        1568,
-        1248
+        -96,
+        256
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "1c31cc43-48a3-4716-82a8-6a920662c0ed",
+      "id": "ee097848-a8c5-4688-ac5d-eb2751d4d200",
       "name": "Same file - Do nothing",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1792,
-        1088
+        128,
+        96
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "c24abb49-6a5e-41db-9e32-0efd682bb440",
+      "id": "c952aeb9-15eb-4a69-83d9-db0707d311f9",
       "name": "File is different",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1792,
-        1248
+        128,
+        256
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "f2ec4b61-8193-49e4-829b-e42bcaafef08",
+      "id": "acc3905d-df36-4cac-8485-7569fd4c45d6",
       "name": "File is new",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        1792,
-        1408
+        128,
+        416
       ],
       "typeVersion": 1
     },
@@ -450,12 +450,12 @@
         "fileContent": "={{$('isDiffOrNew').item.json[\"n8n_data_stringy\"]}}",
         "commitMessage": "={{$('Execute Workflow Trigger').first().json.name}} ({{$json.github_status}})"
       },
-      "id": "af0d0e28-5ed7-4ab8-b1a4-e78567cdc747",
+      "id": "ba33d6b5-e977-41ba-91d9-8d98bd7bd8de",
       "name": "Create new file",
       "type": "n8n-nodes-base.github",
       "position": [
-        2016,
-        1408
+        352,
+        416
       ],
       "webhookId": "e5e4ce8b-74a3-4b94-83ca-351edc280faf",
       "typeVersion": 1,
@@ -484,12 +484,12 @@
         "fileContent": "={{$('isDiffOrNew').item.json[\"n8n_data_stringy\"]}}",
         "commitMessage": "={{$('Execute Workflow Trigger').first().json.name}} ({{$json.github_status}})"
       },
-      "id": "f75605ee-10e8-4d45-b6c6-af2eb9b87a5b",
+      "id": "08e0fc30-133f-4cc1-ad71-4342b51eb0c2",
       "name": "Edit existing file",
       "type": "n8n-nodes-base.github",
       "position": [
-        2016,
-        1232
+        352,
+        240
       ],
       "webhookId": "a57e71de-4960-4d25-a59f-1a9e2e96aff5",
       "typeVersion": 1,
@@ -504,12 +504,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "124e721b-6eac-476f-aa6d-edfe0dc6afa1",
+      "id": "ae5c995b-0075-4325-b393-28bd4c90a62c",
       "name": "Loop Over Items",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        1360,
-        432
+        -304,
+        -576
       ],
       "typeVersion": 3
     },
@@ -524,12 +524,12 @@
           ]
         }
       },
-      "id": "132608d5-dc5e-4a11-9955-331b482fe442",
+      "id": "6c8c9dea-e5d3-485b-a848-54a8a46585f7",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "position": [
-        896,
-        528
+        -768,
+        -480
       ],
       "typeVersion": 1.2
     },
@@ -540,12 +540,12 @@
         "width": 886,
         "color": 7
       },
-      "id": "26e38d41-f253-4fa2-964f-54f8b468d211",
+      "id": "bf323e7a-5e17-4e5c-a1a3-1bfc203aaadd",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        848,
-        256
+        -816,
+        -752
       ],
       "typeVersion": 1
     },
@@ -567,12 +567,12 @@
         "asBinaryProperty": false,
         "additionalParameters": {}
       },
-      "id": "0dfdc6cc-616e-447a-b1cb-45f116894509",
+      "id": "5c2eadee-eff1-4111-af81-285756cf54d3",
       "name": "Get file data",
       "type": "n8n-nodes-base.github",
       "position": [
-        960,
-        992
+        -704,
+        -16
       ],
       "webhookId": "743111c3-2c21-4658-8097-a9fe966f43d2",
       "typeVersion": 1,
@@ -611,12 +611,12 @@
         },
         "options": {}
       },
-      "id": "351f9282-202a-4984-89b3-020c981b309f",
+      "id": "b173247b-2043-48c9-9aac-4eb8e1189fb2",
       "name": "Globals",
       "type": "n8n-nodes-base.set",
       "position": [
-        736,
-        1152
+        -928,
+        160
       ],
       "typeVersion": 3.4
     },
@@ -624,12 +624,12 @@
       "parameters": {
         "inputSource": "passthrough"
       },
-      "id": "72616fc1-1c21-4f17-862c-2838636437ec",
+      "id": "1d5b2cb1-e736-4d09-822f-3040f13df329",
       "name": "Execute Workflow Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        448,
-        1264
+        -1216,
+        272
       ],
       "typeVersion": 1.1
     },
@@ -651,12 +651,12 @@
         "mode": "each",
         "options": {}
       },
-      "id": "9496f6d1-1fcb-4b31-9a80-8f0c15c426f8",
+      "id": "9381d092-63d5-4084-8c96-2b596ae5bec1",
       "name": "Execute Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "position": [
-        1568,
-        432
+        -96,
+        -576
       ],
       "typeVersion": 1.2
     },
@@ -667,12 +667,12 @@
         "width": 150,
         "color": 4
       },
-      "id": "ffe9f716-11de-46b0-8221-ab4addc6ea1c",
+      "id": "c560da6e-6b43-4f3f-a8a0-becdcefe92e2",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        688,
-        1040
+        -976,
+        48
       ],
       "typeVersion": 1
     },
@@ -683,12 +683,12 @@
         "width": 2086.845881354743,
         "color": 6
       },
-      "id": "9a3870e1-e79d-461e-885a-f2e79d76f4e1",
+      "id": "528c368a-b08c-409f-a2a2-fbb81ed91abe",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        368,
-        880
+        -1296,
+        -128
       ],
       "typeVersion": 1
     }
@@ -707,6 +707,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-09T05:37:23.000Z",
-  "versionId": "e215fa43-a894-49d1-833d-0161d4f2c466"
+  "updatedAt": "2025-09-09T05:49:49.000Z",
+  "versionId": "90cbb53f-aa4e-4f2b-847d-73daeed17e1c"
 }
