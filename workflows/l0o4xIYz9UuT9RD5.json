@@ -233,7 +233,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow 3",
+  "name": "Workflow Backup v2",
   "nodes": [
     {
       "parameters": {},
@@ -740,6 +740,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-24T04:16:05.000Z",
-  "versionId": "60a2d9ec-5be7-4fe5-85b1-d4d6b58d18a9"
+  "updatedAt": "2025-09-24T06:56:07.000Z",
+  "versionId": "8378d4ce-694f-4428-af57-494f357acb1e"
 }
